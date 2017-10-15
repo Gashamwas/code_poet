@@ -1,17 +1,24 @@
 
-
-
 class Employee:
-    
-    def __int__ (self, fname, lname, pay):
-        self.fname= fname
-        self.lname = lname
+    num_of_emps = 0
+    raise_amount = 1.04
+
+    def __init__(self, first, last, pay):
+        self.first = first
+        self.last = last
+        self.email = first + '.' + last + '@email.com'
         self.pay = pay
-        self.email = fname + '.' + lname + '@company.com'
 
-emp_1 = Employee('Corey', 'Martin', 50000)
-emp_2 = Employee('James', 'Mwiti', 60000)
+        Employee.num_of_emps += 1
 
-print(emp_2.email)
+    def fullname(self):
+        return '{} {}'.format(self.first, self.last)
+    def apply_raise(self):
+        self.pay = int(self.pay * Employee.raise_amount)
 
-print 
+print(Employee.num_of_emps)
+
+emp_1 = Employee('Corey', 'Schafer', 50000)
+emp_2 = Employee('Test', 'Employee', 60000)
+
+print(Employee.num_of_emps)
